@@ -1,0 +1,19 @@
+{
+  "name": "exoplanet-compare-ts",
+  "version": "1.0.0",
+  "description": "Compare Earth with Earth-like exoplanets from the NASA Exoplanet Archive",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "check": "tsc"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

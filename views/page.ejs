@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Earth vs Exoplanet</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Earth vs Exoplanet</h1>
+  <p class="note">Live data from the NASA Exoplanet Archive</p>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form method="get" action="/">
+    <select name="planet">
+      <% for (const p of planets) { %>
+        <option value="<%= p.name %>" <%= p === selected ? "selected" : "" %>>
+          <%= p.name %> (ESI <%= p.esi.toFixed(2) %>)
+        </option>
+      <% } %>
+    </select>
+    <button type="submit">Compare</button>
+  </form>
+
+  <% if (selected) { %>
+    <div class="planets">
+      <div>
+        <div class="circle" style="width: 80px; height: 80px; background: #3b7dd8"></div>
+        <p>Earth</p>
+      </div>
+      <div class="score">
+        <span>Earth Similarity</span>
+        <strong><%= selected.esi.toFixed(2) %></strong>
+      </div>
+      <div>
+        <div class="circle" style="width: <%= circleSize %>px; height: <%= circleSize %>px; background: #c98a4b"></div>
+        <p><%= selected.name %></p>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>Earth</th>
+        <th><%= selected.name %></th>
+      </tr>
+      <% for (const row of rows) { %>
+        <tr>
+          <td><%= row.label %></td>
+          <td><%= row.earth %></td>
+          <td><%= row.planet %></td>
+        </tr>
+      <% } %>
+    </table>
+
+    <p class="note">
+      Orbits <%= selected.star %>,
+      <%= selected.distanceLightYears == null ? "an unknown distance" : selected.distanceLightYears.toFixed(1) + " light-years" %> away.
+      Discovered <%= selected.discoveryYear ?? "in an unknown year" %>.
+    </p>
+  <% } %>
+</body>
+</html>

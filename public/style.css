@@ -1,0 +1,39 @@
+body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  font-family: system-ui, sans-serif;
+  background: #0b1020;
+  color: #e6e9f2;
+}
+
+h1 { margin-bottom: 4px; }
+.note { color: #8b93ad; }
+.error { color: #f2b84b; }
+
+form { display: flex; gap: 8px; margin: 24px 0; }
+select, button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #2a3355;
+  background: #141b33;
+  color: #e6e9f2;
+}
+select { flex: 1; min-width: 0; }
+button { cursor: pointer; background: #2f5fb3; }
+
+.planets {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  min-height: 180px;
+}
+.circle { border-radius: 50%; margin: 0 auto; }
+.score span { display: block; color: #8b93ad; font-size: 0.85rem; }
+.score strong { font-size: 2.5rem; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #222b4a; }
+th { color: #8b93ad; }
