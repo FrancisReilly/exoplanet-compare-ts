@@ -14,8 +14,11 @@ All the code is TypeScript running on the server. The server fills in an EJS tem
 Needs Node.js 18 or newer.
 
 
+
+```bash
 npm install
 npm start
+```
 
 
 Open http://localhost:3000.
